@@ -18,17 +18,32 @@
 // limitations under the License.
 
 import {useAtom} from 'jotai';
+import {useEffect, useState} from 'react';
 import {ImageSrcAtom, IsUploadedImageAtom} from './atoms';
-import {imageOptions} from './consts';
+import {imageOptions as initialImageOptions, loadImageOptions} from './consts';
 import {useResetState} from './hooks';
 
 export function ExampleImages() {
+  const [loadedImageOptions, setLoadedImageOptions] =
+    useState<string[]>(initialImageOptions);
+  useEffect(() => {
+    loadImageOptions().then(setLoadedImageOptions);
+  }, []);
   const [, setImageSrc] = useAtom(ImageSrcAtom);
   const [, setIsUploadedImage] = useAtom(IsUploadedImageAtom);
   const resetState = useResetState();
+
+  if (loadedImageOptions.length === 0) {
+    return (
+      <div className="flex flex-wrap items-start gap-3 shrink-0 w-[190px]">
+        Loading images...
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-wrap items-start gap-3 shrink-0 w-[190px]">
-      {imageOptions.map((image) => (
+      {loadedImageOptions.map((image) => (
         <button
           key={image}
           className="p-0 w-[56px] h-[56px] relative overflow-hidden"
