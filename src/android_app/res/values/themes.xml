@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.AppCompat" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Primary brand color. -->
+        <!-- <item name="colorPrimary">@color/purple_500</item> -->
+        <!-- <item name="colorPrimaryVariant">@color/purple_700</item> -->
+        <!-- <item name="colorOnPrimary">@color/white</item> -->
+        <!-- Secondary brand color. -->
+        <!-- <item name="colorSecondary">@color/teal_200</item> -->
+        <!-- <item name="colorSecondaryVariant">@color/teal_700</item> -->
+        <!-- <item name="colorOnSecondary">@color/black</item> -->
+        <!-- Status bar color. -->
+        <!-- <item name="android:statusBarColor">?attr/colorPrimaryVariant</item> -->
+        <!-- Customize your theme here. -->
+    </style>
+
+    <!-- You might also have a night theme in values-night/themes.xml -->
+</resources>
