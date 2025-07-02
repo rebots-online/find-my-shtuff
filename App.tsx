@@ -17,7 +17,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {useAtom} from 'jotai';
+import {useAtomValue, useSetAtom} from 'jotai';
 import {useEffect} from 'react';
 import {Content} from './Content';
 import {DetectTypeSelector} from './DetectTypeSelector';
@@ -35,11 +35,13 @@ import {
 import {useResetState} from './hooks';
 
 function App() {
-  const [, setImageSrc] = useAtom(ImageSrcAtom);
-  const resetState = useResetState();
-  const [initFinished, setInitFinished] = useAtom(InitFinishedAtom);
-  const [, setBumpSession] = useAtom(BumpSessionAtom);
-  const [, setIsUploadedImage] = useAtom(IsUploadedImageAtom);
+  // State atoms used elsewhere in the app are initialized here to ensure
+  // consistent state handling even if the setters are currently unused.
+  useSetAtom(ImageSrcAtom);
+  useResetState();
+  const initFinished = useAtomValue(InitFinishedAtom);
+  useSetAtom(BumpSessionAtom);
+  useSetAtom(IsUploadedImageAtom);
 
   useEffect(() => {
     if (!window.matchMedia('(prefers-color-scheme: dark)').matches) {
