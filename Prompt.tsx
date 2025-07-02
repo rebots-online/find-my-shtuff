@@ -17,7 +17,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {GoogleGenAI} from '@google/genai';
+import {GoogleGenAI, type GenerateContentConfig} from '@google/genai';
 import {useAtom} from 'jotai';
 import getStroke from 'perfect-freehand';
 import {useState} from 'react';
@@ -122,10 +122,7 @@ export function Prompt() {
     const prompt = prompts[detectType];
 
     setHoverEntered(false);
-    const config: {
-      temperature: number;
-      thinkingConfig?: {thinkingBudget: number};
-    } = {
+    const config: GenerateContentConfig = {
       temperature,
     };
     // All tasks except for segmentation use 2.0 Flash (for now).
@@ -134,7 +131,7 @@ export function Prompt() {
       // Segmentation uses 2.5 Flash.
       model = 'models/gemini-2.5-flash-preview-04-17';
       // Disable thinking when using 2.5 Flash.
-      config['thinkingConfig'] = {thinkingBudget: 0};
+      config.thinkingConfig = {includeThoughts: false};
     }
 
     let response = (
@@ -156,7 +153,7 @@ export function Prompt() {
         ],
         config,
       })
-    ).text;
+    ).text ?? '';
 
     if (response.includes('```json')) {
       response = response.split('```json')[1].split('```')[0];
