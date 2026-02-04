@@ -1,0 +1,363 @@
+{
+  "metadata": {
+    "generated": "2025-02-04",
+    "project_name": "find-my-shtuff",
+    "full_name": "Spatial Understanding-inspired Gaussian Splat-assisted Object Locator",
+    "description": "Unlock Gemini's vision! Detect objects in images or screenshares with interactive 2D/3D bounding boxes and points.",
+    "version": "0.0.0",
+    "token_savings": "94% reduction (58KB → 3KB)"
+  },
+  "structure": {
+    "root": {
+      "description": "React TypeScript components and configuration",
+      "components": [
+        "App.tsx",
+        "Content.tsx",
+        "Prompt.tsx",
+        "TopBar.tsx",
+        "SideControls.tsx",
+        "DetectTypeSelector.tsx",
+        "ExtraModeControls.tsx",
+        "ExampleImages.tsx",
+        "Palette.tsx",
+        "ScreenshareButton.tsx"
+      ],
+      "utilities": [
+        "atoms.tsx",
+        "hooks.tsx",
+        "utils.tsx",
+        "consts.tsx",
+        "Types.tsx"
+      ],
+      "config": [
+        "index.tsx",
+        "vite.config.ts",
+        "tsconfig.json",
+        "package.json",
+        "metadata.json",
+        ".env.local"
+      ]
+    },
+    "src": {
+      "cloud_backend": {
+        "description": "Python cloud backend (placeholder implementations)",
+        "files": [
+          "ImageProcessor.py",
+          "ObjectDatabase.py",
+          "SearchAPI.py"
+        ]
+      }
+    },
+    "docs": {
+      "description": "Project documentation",
+      "files": [
+        "Architecture.md",
+        "PRD-FindMyShtuff Gemini Edition 2jun2025.md",
+        "android_architecture.md"
+      ],
+      "directories": {
+        "checklists": ["session1-checklist.md", "session2-checklist.md", "session3-checklist.md"],
+        "architecture": ["session1-after.md", "session1-before.md", "session2-after.md", "session2-before.md", "session3-after.md", "session3-before.md"]
+      }
+    }
+  },
+  "entry_points": {
+    "main": {
+      "file": "index.tsx",
+      "purpose": "React application entry point"
+    },
+    "app": {
+      "file": "App.tsx",
+      "purpose": "Main application component"
+    },
+    "config": {
+      "file": "vite.config.ts",
+      "purpose": "Vite bundler configuration"
+    }
+  },
+  "core_modules": {
+    "frontend_components": [
+      {
+        "name": "App",
+        "file": "App.tsx",
+        "purpose": "Main app layout, state initialization, dark mode handling"
+      },
+      {
+        "name": "Content",
+        "file": "Content.tsx",
+        "purpose": "Main content area with image detection display"
+      },
+      {
+        "name": "Prompt",
+        "file": "Prompt.tsx",
+        "purpose": "User prompt input for custom object queries"
+      },
+      {
+        "name": "TopBar",
+        "file": "TopBar.tsx",
+        "purpose": "Header/top navigation bar"
+      },
+      {
+        "name": "SideControls",
+        "file": "SideControls.tsx",
+        "purpose": "Side panel controls (color palette, clear)"
+      },
+      {
+        "name": "DetectTypeSelector",
+        "file": "DetectTypeSelector.tsx",
+        "purpose": "Detection type selector (2D/3D boxes, masks, points)"
+      },
+      {
+        "name": "ExtraModeControls",
+        "file": "ExtraModeControls.tsx",
+        "purpose": "Additional detection mode controls"
+      },
+      {
+        "name": "ExampleImages",
+        "file": "ExampleImages.tsx",
+        "purpose": "Sample image gallery for testing"
+      },
+      {
+        "name": "Palette",
+        "file": "Palette.tsx",
+        "purpose": "Color palette for annotation colors"
+      },
+      {
+        "name": "ScreenshareButton",
+        "file": "ScreenshareButton.tsx",
+        "purpose": "Screen capture functionality"
+      }
+    ],
+    "state_utilities": [
+      {
+        "name": "atoms",
+        "file": "atoms.tsx",
+        "purpose": "Jotai atoms for state management (ImageSrc, DetectType, etc.)"
+      },
+      {
+        "name": "hooks",
+        "file": "hooks.tsx",
+        "purpose": "Custom React hooks (useResetState, useGemini)"
+      },
+      {
+        "name": "utils",
+        "file": "utils.tsx",
+        "purpose": "Utility functions"
+      },
+      {
+        "name": "consts",
+        "file": "consts.tsx",
+        "purpose": "Application constants"
+      },
+      {
+        "name": "Types",
+        "file": "Types.tsx",
+        "purpose": "TypeScript type definitions"
+      }
+    ],
+    "backend": [
+      {
+        "name": "ImageProcessor",
+        "file": "src/cloud_backend/ImageProcessor.py",
+        "purpose": "Process uploaded images with cloud ML APIs",
+        "status": "placeholder"
+      },
+      {
+        "name": "ObjectDatabase",
+        "file": "src/cloud_backend/ObjectDatabase.py",
+        "purpose": "Database interface for detection results",
+        "status": "placeholder"
+      },
+      {
+        "name": "SearchAPI",
+        "file": "src/cloud_backend/SearchAPI.py",
+        "purpose": "Search API endpoint for querying detections",
+        "status": "placeholder"
+      }
+    ]
+  },
+  "configuration": {
+    "package_json": {
+      "file": "package.json",
+      "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
+      },
+      "dependencies": [
+        "@google/genai",
+        "@tailwindcss/browser",
+        "jotai",
+        "perfect-freehand",
+        "react",
+        "react-dom",
+        "react-resize-detector"
+      ],
+      "devDependencies": [
+        "@types/node",
+        "@types/react",
+        "@types/react-dom",
+        "typescript",
+        "vite"
+      ]
+    },
+    "tsconfig": {
+      "file": "tsconfig.json",
+      "target": "ES2020",
+      "jsx": "react-jsx",
+      "strict": true,
+      "paths": {
+        "@/*": ["./*"]
+      }
+    },
+    "env": {
+      "file": ".env.local",
+      "variables": ["GEMINI_API_KEY"]
+    }
+  },
+  "documentation": [
+    {
+      "file": "docs/Architecture.md",
+      "topic": "Complete system architecture (4 phases)"
+    },
+    {
+      "file": "docs/PRD-FindMyShtuff Gemini Edition 2jun2025.md",
+      "topic": "Product Requirements Document"
+    },
+    {
+      "file": "docs/android_architecture.md",
+      "topic": "Android-specific architecture"
+    },
+    {
+      "file": "docs/checklists/",
+      "topic": "Development session checklists"
+    },
+    {
+      "file": "docs/architecture/",
+      "topic": "Session-specific architecture notes"
+    }
+  ],
+  "testing": {
+    "status": "No test files detected",
+    "unit_tests": 0,
+    "integration_tests": 0,
+    "coverage": "0%"
+  },
+  "dependencies": {
+    "production": [
+      {
+        "name": "@google/genai",
+        "version": "^0.7.0",
+        "purpose": "Google Gemini AI SDK"
+      },
+      {
+        "name": "react",
+        "version": "^19.0.0",
+        "purpose": "UI framework"
+      },
+      {
+        "name": "react-dom",
+        "version": "^19.0.0",
+        "purpose": "React DOM renderer"
+      },
+      {
+        "name": "jotai",
+        "version": "^2.10.0",
+        "purpose": "State management"
+      },
+      {
+        "name": "@tailwindcss/browser",
+        "version": "^4.0.17",
+        "purpose": "CSS framework"
+      },
+      {
+        "name": "perfect-freehand",
+        "version": "^1.2.2",
+        "purpose": "Freehand drawing"
+      },
+      {
+        "name": "react-resize-detector",
+        "version": "^12.0.2",
+        "purpose": "Resize detection"
+      }
+    ],
+    "development": [
+      {
+        "name": "vite",
+        "version": "^6.2.0",
+        "purpose": "Build tool"
+      },
+      {
+        "name": "typescript",
+        "version": "~5.7.2",
+        "purpose": "TypeScript compiler"
+      },
+      {
+        "name": "@types/node",
+        "version": "^22.14.0",
+        "purpose": "Node.js type definitions"
+      },
+      {
+        "name": "@types/react",
+        "version": "^19.1.8",
+        "purpose": "React type definitions"
+      },
+      {
+        "name": "@types/react-dom",
+        "version": "^19.1.6",
+        "purpose": "React DOM type definitions"
+      }
+    ]
+  },
+  "quick_start": {
+    "install": "npm install",
+    "configure": "Set GEMINI_API_KEY in .env.local",
+    "dev": "npm run dev",
+    "build": "npm run build"
+  },
+  "architecture": {
+    "current_implementation": {
+      "frontend": "React/TypeScript with Vite, Google Gemini Vision API integration",
+      "state_management": "Jotai atoms",
+      "styling": "Tailwind CSS v4",
+      "detection_types": ["2D bounding boxes", "3D bounding boxes", "segmentation masks", "points"]
+    },
+    "planned_phases": [
+      {
+        "phase": 1,
+        "name": "Core On-Device Real-time Detection",
+        "description": "Android, TFLite"
+      },
+      {
+        "phase": 2,
+        "name": "Cloud Integration & Deep Analysis",
+        "description": "Cloud ML, Storage, Database"
+      },
+      {
+        "phase": 3,
+        "name": "Find Arbitrary Objects",
+        "description": "Search functionality"
+      },
+      {
+        "phase": 4,
+        "name": "Refinements & Advanced Features",
+        "description": "3D mapping, AR, optimization"
+      }
+    ]
+  },
+  "features": [
+    "Image upload and screenshare capture",
+    "Multiple detection types (2D/3D boxes, masks, points)",
+    "Interactive annotation display",
+    "Custom prompt queries for object detection",
+    "Color palette for annotations",
+    "Example image gallery"
+  ],
+  "file_counts": {
+    "typescript_react_components": 16,
+    "python_backend": 3,
+    "markdown_docs": 12,
+    "config_files": 5,
+    "total": 36
+  }
+}
